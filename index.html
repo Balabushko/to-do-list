@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to do</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">
+    <div class="wrapper">
+        <h1>Список дел</h1>
+        <p>Список дел — это всего лишь перечисление того, чем вам нужно заняться. В таком списке может быть всё, что угодно. Но сам факт того, что вы записали дела, ещё не означает, что этот список будет по-настоящему полезным. Отслеживание сроков выполнения работы позволяет определять приоритеты и делать её хорошо. </p>
+        <input type="text" v-model="item" placeholder="Введите задачу">
+        <button @click="add_list()" v-if="item==''" disabled>Добавить</button>
+        <button @click="add_list()" v-else>Добавить</button>
+        <hr>
+        <ul>
+            <li v-for="(text_item, index) in list">
+                {{text_item}} <span @click="deleteItem(index)">X</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
